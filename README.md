@@ -67,4 +67,5 @@ Three different run modes are supported:
 * Figures have the images with daily cases, daily death and Rt for all countries.
 
 ## Notice
- * Python code is right now not updated and won't work. Python code is good for only version 1 model and data.
+ * Python code in notebooks is right now not updated and won't work. Python code is good for only version 1 model and data.
+ Python scripts to download and reformat US data (in the /data/ folder) are working.
