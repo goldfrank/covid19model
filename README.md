@@ -1,7 +1,9 @@
 ![](https://github.com/ImperialCollegeLondon/covid19model/workflows/CI/badge.svg)
 
 # covid19model
-Code for modelling estimated deaths and cases for COVID19 from Report 13 published by MRC Centre for Global Infectious Disease Analysis, Imperial College London: [Estimating the number of infections and the impact of nonpharmaceutical interventions on COVID-19 in 11 European countries](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/) 
+Code for modelling estimated deaths and cases for COVID19 from Report 13 published by MRC Centre for Global Infectious Disease Analysis, Imperial College London: [Estimating the number of infections and the impact of nonpharmaceutical interventions on COVID-19 in 11 European countries](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/)
+
+Modified from the original to make state-level estimates for the United States using CDC data.
 
 ## Version 2 Release
 In this update we extend our original [model](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/)  to include (a) population saturation effects, (b) prior uncertainty on the infection fatality ratio and (c) a more balanced prior on intervention effects.  We also (d) included another 3 countries (Greece, the Netherlands and Portugal). The updated technical detail is available [here](https://github.com/ImperialCollegeLondon/covid19model/blob/master/Technical_description_of_Imperial_COVID_19_Model.pdf).
@@ -65,4 +67,5 @@ Three different run modes are supported:
 * Figures have the images with daily cases, daily death and Rt for all countries.
 
 ## Notice
- * Python code is right now not updated and won't work. Python code is good for only version 1 model and data.
+ * Python code in notebooks is right now not updated and won't work. Python code is good for only version 1 model and data.
+ Python scripts to download and reformat US data (in the /data/ folder) are working.
