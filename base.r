@@ -71,6 +71,8 @@ options(mc.cores = parallel::detectCores())
 rstan_options(auto_write = TRUE)
 m = stan_model(paste0('stan-models/',StanModel,'.stan'))
 
+DEBUG = TRUE
+
 if(DEBUG) {
   fit = sampling(m,data=stan_data,iter=40,warmup=20,chains=2)
 } else if (FULL) {

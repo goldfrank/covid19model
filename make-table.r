@@ -4,10 +4,10 @@ filename <- args[1]
 print(sprintf("Running %s",filename))
 load(filename)
 
-df_pop= read.csv("data/popt_ifr.csv", stringsAsFactors = FALSE)
-df_pop$country[df_pop$country == "United Kingdom"] = "United_Kingdom"
+df_pop= read.csv("data/us/popt_ifr_us.csv", stringsAsFactors = FALSE)
+#df_pop$country[df_pop$country == "United Kingdom"] = "United_Kingdom"
 
-dates_italy <- dates[[which(countries == "Italy")]]
+dates_italy <- dates[[which(countries == "Washington")]]
 len_dates <- length(dates_italy)
 
 date_till_percentage <- as.character(Sys.Date())
