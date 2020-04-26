@@ -7,9 +7,16 @@ library(tidyr)
 library(EnvStats)
 library(optparse)
 
+<<<<<<< HEAD
 if (TRUE) {
 # omits Alaska, Wyoming, Montana, North Dakota, South Dakota -- too few deaths (this is a Good Thing)
 # as of 14 April 2020
+=======
+
+# omits Alaska, Wyoming, Montana, North Dakota, South Dakota -- too few deaths (this is a Good Thing)
+# as of 14 April 2020
+
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
 countries <- c(
   'Alabama',
   'Arizona',
@@ -58,6 +65,7 @@ countries <- c(
   'Washington',
   'Wisconsin'
 )
+<<<<<<< HEAD
 }
 
 if (FALSE){
@@ -81,6 +89,8 @@ countries <- c(
 }
 
 #FULL = TRUE
+=======
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
 
 # Commandline options and parsing
 parser <- OptionParser()
@@ -241,12 +251,17 @@ for(Country in countries) {
   cases=c(as.vector(as.numeric(d1$Cases)),rep(-1,forecast))
   deaths_by_country[[Country]] = as.vector(as.numeric(d1$Deaths))
   covariates2 <- as.data.frame(d1[, colnames(covariates1)])
+<<<<<<< HEAD
   # x=1:(N+forecast)  ## ICL comment
   
   ### sets covariates for forecasted days to be covariates on last day for which there are data
   covariates2[N:(N+forecast),] <- covariates2[N,]*1
   
   #covariates2[N:(N+forecast),] <- covariates2[N,]*0
+=======
+  # x=1:(N+forecast)
+  covariates2[N:(N+forecast),] <- covariates2[N,]
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
   
   ## append data
   stan_data$N = c(stan_data$N,N)
@@ -293,6 +308,7 @@ options(mc.cores = parallel::detectCores())
 rstan_options(auto_write = TRUE)
 m = stan_model(paste0('stan-models/',StanModel,'.stan'))
 
+<<<<<<< HEAD
 DEBUG = TRUE
 
 if(DEBUG) {
@@ -301,6 +317,15 @@ if(DEBUG) {
   fit = sampling(m,data=stan_data,iter=3000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.96, max_treedepth = 10))
 } else {
   fit = sampling(m,data=stan_data,iter=1500,warmup=500,chains=6,thin=4,control = list(adapt_delta = 0.95, max_treedepth = 10))
+=======
+# FULL = TRUE
+if(DEBUG) {
+  fit = sampling(m,data=stan_data,iter=40,warmup=20,chains=2)
+} else if (FULL) {
+  fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=4,thin=4,control = list(adapt_delta = 0.95, max_treedepth = 10))
+} else { 
+  fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.95, max_treedepth = 10))
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
 }  
 
 out = rstan::extract(fit)
@@ -331,10 +356,19 @@ g = (mcmc_intervals(Rt_adj,prob = .9))
 ggsave(sprintf("results/%s-final-rt.png",filename),g,width=4,height=6)
 system(paste0("Rscript plot-3-panel_us2.r ", filename,'-stanfit.Rdata'))
 system(paste0("Rscript plot-forecast_us2.r ",filename,'-stanfit.Rdata'))
+<<<<<<< HEAD
 #system(paste0("Rscript make-table_us2.r results/",filename,'-stanfit.Rdata'))
 #verify_result <- system(paste0("Rscript web-verify-output.r ", filename,'.Rdata'),intern=FALSE)
 #if(verify_result != 0){
 #  stop("Verification of web output failed!")
 #}
 #system("Rscript web-fix-fonts.r")
+=======
+system(paste0("Rscript make-table_us2.r results/",filename,'-stanfit.Rdata'))
+verify_result <- system(paste0("Rscript web-verify-output.r ", filename,'.Rdata'),intern=FALSE)
+if(verify_result != 0){
+  stop("Verification of web output failed!")
+}
+system("Rscript web-fix-fonts.r")
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
 

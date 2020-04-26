@@ -134,7 +134,11 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
   
   ggsave(file= paste0("figures/", country, "_forecast_", filename, ".png"), 
          p, width = 10)
+<<<<<<< HEAD
   print("DEBUG")
+=======
+  
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
   # Produce plots for Website
   dir.create("web/figures/desktop/", showWarnings = FALSE, recursive = TRUE)
   save_plot(filename = paste0("web/figures/desktop/", country, "_forecast", ".svg"), 

@@ -4,6 +4,7 @@
 Code for modelling estimated deaths and cases for COVID19 from Report 13 published by MRC Centre for Global Infectious Disease Analysis, Imperial College London: [Estimating the number of infections and the impact of nonpharmaceutical interventions on COVID-19 in 11 European countries](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/)
 
 Modified from the original to make state-level estimates for the United States using CDC data.
+<<<<<<< HEAD
 
 ## Version 3 Release
 In this update, we first extended our model from version 2 to have 'partial-pooling' for lockdown across all countries. This means now we have a global effect of lockdown along with each country having its own different lockdown effect. We also made our code modular, stan code faster (with help from the community) and now we create CSV outputs too for usage. 
@@ -13,6 +14,8 @@ You can directly get csv files [here](https://mrc-ide.github.io/covid19estimates
 ## Notice
  * Python code is right now not updated and won't work. Python code is good for only version 1 model and data.
  * base_general.r and base_general.stan, base_general_speed.stan and  	base_general_speed2.stan are now valid models for only version2
+=======
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
 
 ## Version 2 Release
 In this update we extend our original [model](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/)  to include (a) population saturation effects, (b) prior uncertainty on the infection fatality ratio and (c) a more balanced prior on intervention effects.  We also (d) included another 3 countries (Greece, the Netherlands and Portugal). The updated technical detail is available [here](https://github.com/ImperialCollegeLondon/covid19model/blob/master/Technical_description_of_Imperial_COVID_19_Model.pdf).
@@ -74,3 +77,10 @@ Three different run modes are supported:
 * The results are stored in two folders results and figures.
 * Results has the stored stan fits and data used for plotting
 * Figures have the images with daily cases, daily death and Rt for all countries.
+<<<<<<< HEAD
+=======
+
+## Notice
+ * Python code in notebooks is right now not updated and won't work. Python code is good for only version 1 model and data.
+ Python scripts to download and reformat US data (in the /data/ folder) are working.
+>>>>>>> 69c0cabfd0bc748b536c36898e9f59e7b26d2c64
